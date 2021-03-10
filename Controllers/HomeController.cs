@@ -17,7 +17,7 @@ namespace Autoveille.Controllers
 
             return View();
         }
-        public JsonResult GetNomAppels()
+        public ActionResult GetNomAppels()
         {
             List<NomAppel> nomAppels = new List<NomAppel>
             {
@@ -26,10 +26,10 @@ namespace Autoveille.Controllers
                 new NomAppel{Id=3,Nom="Third Example",NbrArejoindre=1,NbrDesactivee=5,NbrLitiges=2,NbrProspects=6,NbrRDV=8,NbrRejoints=1,NbrRelances=6}
             };
            
-            return   Json(nomAppels,JsonRequestBehavior.AllowGet);
+            return   PartialView(nomAppels);
         }
 
-        public JsonResult GetClients()
+        public ActionResult GetClients()
         {
             List<Client> clients = new List<Client>()
             {
@@ -39,7 +39,7 @@ namespace Autoveille.Controllers
                 new Client{ClientId=4,NomClient="Alpha",FinTerme=new System.DateTime(2010,01,15),Mobile="407 3254 1478",ModeleVehicule="Model vhi 1",Phone1="407 412 145",Phone2="458745 123"}
             };
 
-            return Json(clients);
+            return PartialView(clients);
         }
 
         public ActionResult Contact()

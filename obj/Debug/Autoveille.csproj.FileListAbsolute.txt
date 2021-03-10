@@ -94,4 +94,3 @@ C:\Users\360_Corporate\source\repos\Autoveille\obj\Debug\Autoveille.csproj.CoreC
 C:\Users\360_Corporate\source\repos\Autoveille\obj\Debug\Autoveille.csproj.CopyComplete
 C:\Users\360_Corporate\source\repos\Autoveille\obj\Debug\Autoveille.dll
 C:\Users\360_Corporate\source\repos\Autoveille\obj\Debug\Autoveille.pdb
-C:\Users\360_Corporate\source\repos\Autoveille\obj\Debug\Autoveille.csprojAssemblyReference.cache

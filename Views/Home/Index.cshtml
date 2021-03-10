@@ -28,45 +28,32 @@
     </div>
 </div>
 
-<table id="dataTable" class="table table-bordered table-striped">
-    @*<thead>
-        <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Salary</th>
-        </tr>
-    </thead>*@
-</table>
 
 
+
+<div id="dvCampaignDetails" style="width:75%" >
+
+</div>
 
 
 
 
 <script type="text/javascript">
-    
-    //$(document).ready(function () {
-    //    $.noConflict();
-    //        $('#dataTable').DataTable({
-    //            "ajax": {
-    //                "url": "/Home/GetNomAppels",
-    //                "type": "GET",
-    //                "datatype": "json"
-    //            },
-    //            "columns": [
-    //                { "data": "Nom" },
-    //                { "data": "NbrProspects" },
-    //                { "data": "NbrRejoints" },
-    //                { "data": "NbrArejoindre" },
-    //                { "data": "NbrRDV" },
-    //                { "data": "NbrDesactivee" },
-    //                { "data": "NbrRelances" },
-    //                { "data": "NbrLitiges" }
-    //            ]
-    //        });
-    //    });
+    $(document).ready(function () {
+        $.ajax({
+            url: '/Home/GetNomAppels',
+            contentType: 'application/html; charset=utf-8',
+            type: 'GET',
+            dataType: 'html',
+            success: function (result) {
+                $('#dvCampaignDetails').html(result);
+            },
+            error: function (xhr, status) {
+                alert(status);
+            }
+        });
+    });
+
 </script>
 
 

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Autoveille.Models.NomAppel>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr style="background-color:#fbbb29;height:70px;margin-bottom:5px;color:#160F0C;text-align:center;padding-top:20px;padding-right:50px">
+            <td>
+                <button onclick="displayClients()">
+                    <img src="~/Content/Images/Plus.png" width="30" height="30" alt="Plus button Logo" >
+                </button>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbrProspects) prospects
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbrRejoints) rejoints
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbrArejoindre) a rejoindre
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbrRDV) RDV
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbrDesactivee) desactivées
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbrRelances) relances futures
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbrLitiges) litiges
+            </td>
+        </tr>
+        <tr id="clients" style="display:none">
+
+        </tr>
+    }
+
+</table>
+<script>
+
+    function displayClients() {
+        $.ajax({
+            url: '/Home/GetClients',
+            contentType: 'application/html; charset=utf-8',
+            type: 'GET',
+            dataType: 'html',
+            success: function (result) {
+                $('#clients').toggle();
+                $('#clients').html(result);
+            },
+            error: function (xhr, status) {
+                alert(status);
+            }
+        });
+    }
+</script>
