@@ -53,10 +53,31 @@
         @Html.DisplayFor(modelItem => item.Mobile)
     </td>
     <td>
-        <img src="~/Content/Images/Expand-green.png" alt="expand"/>
+        <button onclick="displayClientDetails()">
+            <img src="~/Content/Images/Expand-green.png" alt="expand" />
+        </button>
+        
     </td>
 </tr>
 }
 
 </table>
+<script>
+    function displayClientDetails() {
+        $.ajax({
+            url: '/Home/GetFicheClient',
+            contentType: 'application/html; charset=utf-8',
+            type: 'GET',
+            dataType: 'html',
+            success: function (result) {
 
+                //$('#clients').css("visibility","visible");
+                $('#dvClientDetails').html(result);
+               // $('#clients').toggle();
+            },
+            error: function (xhr, status) {
+                alert(status);
+            }
+        });
+    }
+</script>

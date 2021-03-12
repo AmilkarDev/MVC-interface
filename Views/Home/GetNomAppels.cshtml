@@ -37,8 +37,10 @@
                 @Html.DisplayFor(modelItem => item.NbrLitiges) litiges
             </td>
         </tr>
-        <tr id="clients" style="display:none">
+        <tr>
+            <td id="clients"  colspan="9" style="display:none;">
 
+            </td>
         </tr>
     }
 
@@ -46,14 +48,17 @@
 <script>
 
     function displayClients() {
+        console.log('bbbbb');
         $.ajax({
             url: '/Home/GetClients',
             contentType: 'application/html; charset=utf-8',
             type: 'GET',
             dataType: 'html',
             success: function (result) {
-                $('#clients').toggle();
+                
+                //$('#clients').css("visibility","visible");
                 $('#clients').html(result);
+                $('#clients').toggle();
             },
             error: function (xhr, status) {
                 alert(status);
