@@ -41,6 +41,27 @@ namespace Autoveille.Controllers
 
             return PartialView(clients);
         }
+        public ActionResult GetFicheClient()
+        {
+            FicheClient client = new FicheClient()
+            {
+                Id = 1,
+                Courriel = "Sergio@Suly.ca",
+                DateAchat = new System.DateTime(2015, 12, 15),
+                Langue= "Français",
+                Niv= "1450 000 254",
+                NoClient="235 654 741",
+                NomClient="Sergio Palgiaroliui",
+                NoteAppelsPrecedents="alalalalalalalalalllalalalalall",
+                Terme= "48 mois",
+                ValeurVehicule="45 0000",
+                TypeAchat="000000",
+                VehiculeDesire="Honda",
+                Ville="Quebec"
+            };
+
+            return PartialView(client);
+        }
 
         public ActionResult Contact()
         {
