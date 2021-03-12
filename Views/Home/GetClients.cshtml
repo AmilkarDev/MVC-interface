@@ -72,8 +72,12 @@
             success: function (result) {
 
                 //$('#clients').css("visibility","visible");
-                $('#dvClientDetails').html(result);
-               // $('#clients').toggle();
+                var details = document.getElementById('detailsClient');
+                
+                $("#leftContent").css('width', '75%');
+                $("#detailsClient").appendTo("#innerContent");
+                $('#detailsClient').html(result);
+                $('#detailsClient').toggle();
             },
             error: function (xhr, status) {
                 alert(status);
